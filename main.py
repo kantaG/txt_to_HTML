@@ -4,7 +4,7 @@ import re
 f = open(r"txt_to_HTML\test_input.txt",encoding="utf-8")
 html = open(r"txt_to_HTML\text_out.html", "w")
 
-print("<html><head><title>...</title><<head></body>", file=html)
+print("<html><head><title>...</title><head></body>", file=html)
 
 title = True
 for block in blocks(f):
