@@ -1,6 +1,22 @@
 from generater import *
+import re
 
-f = open(r"C:\Users\kanta\Documents\programming\python\txt_to_HTML\test_input.txt",encoding="utf-8")
+f = open(r"txt_to_HTML\generater.py",encoding="utf-8")
 
-for line in blocks(f):
-    print(line)
+print("<html><head><title>...</title><head></body>")
+
+title = True
+for block in blocks(f):
+    if title:
+        print("<h1>")
+        print(block)
+        print("</h1>")
+        title = False
+    else:
+        print("<p>")
+        print(block)
+        print("</p>")
+
+
+
+print("</body></html>")
