@@ -42,7 +42,7 @@ class HTMLrender(Handler):
         print("<li>")
     def end_listitem(self):
         print("</li>")
-    def sub_emphsis(self, match):
+    def sub_emphasis(self, match):
         return f'<em>{match.group(1)}</em>'
     def sub_url(self, match):
         return f'<a harf="{match.group(1)}">{match.group(1)}</a>'
