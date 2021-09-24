@@ -21,7 +21,7 @@ class HTMLrender(Handler):
     def start_document(self):
         print('<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>...</title></head><body>')
     def end_documenmt(self):
-        print("</body0></html>")
+        print("</body></html>")
     def start_paragraph(self):
         print("<p>")
     def end_paragraph(self):
