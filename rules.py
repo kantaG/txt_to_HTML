@@ -20,7 +20,7 @@ class TitleRule(Rule):
         return HeadingRule.condition(self, block)
 
 class ListItemRule(Rule):
-    type = "ListItem"
+    type = "listitem"
     def condition(self, block):
         return block[0] == '-'
     def action(self, block, handler):
@@ -29,8 +29,8 @@ class ListItemRule(Rule):
         handler.end(self.type)
         return True
 
-class ListRule(Rule):
-    type = "List"
+class ListRule(ListItemRule):
+    type = "list"
     inside = False
     def condition(self, block):
         return True
