@@ -16,7 +16,7 @@ class Parser:
         self.filters.append(filter)
     
     def parse(self, file):
-        self.handler.start("docment")
+        self.handler.start("document")
         for block in blocks(file):
             for filter in self.filters:
                 block = filter(block, self.handler)
@@ -25,16 +25,16 @@ class Parser:
                     last = rule.action(block, self.handler)
                     if last:
                         break
-        self.handler.end('docment')
+        self.handler.end('document')
 
 class BasicTextParser(Parser):
     def __init__(self, handler):
         Parser.__init__(self, handler)
-        self.addRule(ListRule)
-        self.addRule(ListItemRule)
-        self.addRule(TitleRule)
-        self.addRule(HeadingRule)
-        self.addRule(ParagraphRule)
+        self.addRule(ListRule())
+        self.addRule(ListItemRule())
+        self.addRule(TitleRule())
+        self.addRule(HeadingRule())
+        self.addRule(ParagraphRule())
 
         self.addFilter(r'\*(.+?)\*', "emphasis")
         self.addFilter(r'(https://[\.a-zA-Z/]+)', "url")
