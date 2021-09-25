@@ -9,7 +9,7 @@ class Handler:
         self.callback('end_', name)
     def sub(self, name):
         def subtituation(match):
-            result = self.callback('sub_', name)
+            result = self.callback('sub_', name, match)
             if result is None:
                 match.group(0)
             return result
@@ -45,8 +45,8 @@ class HTMLrender(Handler):
     def sub_emphasis(self, match):
         return f'<em>{match.group(1)}</em>'
     def sub_url(self, match):
-        return f'<a harf="{match.group(1)}">{match.group(1)}</a>'
+        return f'<a href="{match.group(1)}">{match.group(1)}</a>'
     def sub_mail(self, match):
-        return f'<a harf="mailto:{match.group(1)}">{match.group(1)}</a>'
+        return f'<a href="mailto:{match.group(1)}">{match.group(1)}</a>'
     def feed(self, data):
         print(data)
